@@ -6,6 +6,16 @@
 
 // });
 $(document).ready(function () {
+
+  $('a[data-scroll]').on("click",function (e){
+    // e.preventDefault();
+    console.log($(this).attr("data-scroll"));
+    
+    $("body").animate({
+      scrollTop: $($(this).attr("data-scroll")).offset().top
+    })
+  });
+
   new WOW().init();
   if ($(window).width() < 992) {
     $(".img-conainer").unwrap()
@@ -60,21 +70,7 @@ $(document).ready(function () {
     
   // });
 
-  $(window).on("scroll", function(){
-
-    $('a[data-scroll]').on("click",function (e) {
-      e.preventDefault();
-      //Set Offset Distance from top to account for fixed nav
-      var offset = 0;
-      var target = ('#' + $(this).data('scroll'));
-      var $target = $(target);
-      //Animate the scroll to, include easing lib if you want more fancypants easings
-      $('html, body').stop().animate({
-          'scrollTop': $target.offset().top - offset
-      }, 1000);
-    });
-  
-  });
+ 
 
 
 
