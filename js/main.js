@@ -1,11 +1,18 @@
-// $(window).load(function () {
-//   // $(".loader-wrap").fadeOut(400,function () {
-//   //     $(this).remove();
-//   //     $(".loader-wrap").css({"display": "none"});
-//   // });
 
-// });
+$(window).on("load", function () {
+  $('body,html').scrollTop(0)
+  $(".demo").fadeOut(500, function () {
+      $(this).remove();
+      $('body').css("overflow-y", "visible");
+
+
+  });
+});
+
 $(document).ready(function () {
+
+  
+
 
   $('a[data-scroll]').on("click",function (e){
     // e.preventDefault();
@@ -13,7 +20,7 @@ $(document).ready(function () {
     
     $("body").animate({
       scrollTop: $($(this).attr("data-scroll")).offset().top
-    })
+    }, 1000)
   });
 
   new WOW().init();
@@ -39,6 +46,10 @@ $(document).ready(function () {
       }
     })
   }
+  if ($(window).width() < 481) {
+    $(".for-now").wrap(".sm-icons")
+    
+  }
   //  $('#nav-icon3').click(function(){
   //    $('#nav-icon3').toggleClass('open');
 
@@ -48,17 +59,21 @@ $(document).ready(function () {
     if ($("#nav-icon3").hasClass("open")) {
       $(".animated-nav").fadeOut();
       $('#nav-icon3').removeClass('open');
-      $("html, body").css({ "overflow": "visible" });
+      $("html, body").css({ "overflow-y": "visible" });
+      $("html, body").css({ "overflow-x": "hidden" });
     } else {
       $(".animated-nav").fadeIn();
       $('#nav-icon3').addClass('open');
       $("html, body").css({ "overflow": "hidden" });
+      $("html, body").css({ "overflow-y": "hidden" });
+    $("html, body").css({ "overflow-x": "hidden" });
     }
   });
   $(".animated-nav").on("click", function () {
     $(".animated-nav").fadeOut();
     $('#nav-icon3').removeClass('open');
-    $("html, body").css({ "overflow": "visible" });
+    $("html, body").css({ "overflow-y": "visible" });
+    $("html, body").css({ "overflow-x": "hidden" });
   });
 
   // $(".zx-header .scroll-icon").on("click", function () {
@@ -70,8 +85,10 @@ $(document).ready(function () {
     
   // });
 
- 
 
 
+
+
+  
 
 });
