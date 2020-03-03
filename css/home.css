@@ -19,7 +19,7 @@ html::-webkit-scrollbar-thumb {
 body {
   font-family: 'reg';
   text-align: left;
-  overflow-y: hidden;
+  //overflow-y: hidden;
 }
 
 input:focus, a:focus, button:focus {
